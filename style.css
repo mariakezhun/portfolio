@@ -274,107 +274,107 @@ button {
 }
 
 .orange {
-    isolation: isolate;
+  isolation: isolate;
 }
 
 /* Вся сцена занимает карточку */
 .orange .orange-scene {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  inset: 0;
 
-    z-index: 0;
-    overflow: hidden;
-    border-radius: inherit;
-    pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 /* Оба слоя телефона получают одинаковую геометрию */
 .orange .phone-layer {
-    position: absolute;
+  position: absolute;
 
-    left: var(--phone-left);
-    top: var(--phone-top);
-    width: var(--phone-width);
-    height: var(--phone-height);
+  left: var(--phone-left);
+  top: var(--phone-top);
+  width: var(--phone-width);
+  height: var(--phone-height);
 }
 
 /* Картинка внутри телефона */
 .orange .phone-layer--bottom {
-    z-index: 1;
+  z-index: 1;
 }
 
 /* Мандарины поверх картинки внутри телефона */
 .orange .orange-scene .background-mandarin {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
 
-    display: block;
-    width: 120%;
-    height: 120%;
-    object-fit: cover;
+  display: block;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
 }
 
 /* Рамка и модалка поверх мандаринов */
 .orange .phone-layer--top {
-    z-index: 3;
+  z-index: 3;
 }
 
 .orange .phone-layer--top .visual-phone {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  inset: 0;
 
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
 
-    object-fit: contain;
+  object-fit: contain;
 }
 
 /* Обрезка нижней картинки по области экрана.
    Эти отступы пока предварительные. */
 .orange .phone-screen {
-    position: absolute;
-    overflow: hidden;
-    border-radius: 12% / 6%;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 12% / 6%;
 }
 
 .orange .phone-screen-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .orange .phone-layer--top .phone-frame {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
 
-    object-fit: contain;
+  object-fit: contain;
 }
 
 /* Модалка поверх рамки */
 .orange .phone-layer--top .visual-phone {
-    z-index: 1;
+  z-index: 1;
 }
 
 /* Описание и кнопка — выше всей сцены */
 .orange .casecopy {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .orange .arrow {
-    z-index: 2;
+  z-index: 2;
 }
 
 /* .background {
@@ -433,74 +433,74 @@ button {
 
 /* Декоративный слой занимает всю карточку */
 .game .game-decor {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 
-    pointer-events: none;
+  pointer-events: none;
 }
 
 /* Экспортированные детали */
 .game .game-decor-item {
-    position: absolute;
-    display: block;
+  position: absolute;
+  display: block;
 
-    height: auto;
-    max-width: none;
+  height: auto;
+  max-width: none;
 }
 
 /* Верхний листочек */
 .game .game-decor-item--1 {
-    width: 19.83px;
-    left: 9.27px;
-    top: -5.8px;
+  width: 19.83px;
+  left: 9.27px;
+  top: -5.8px;
 }
 
 /* Деталь у левого края */
 .game .game-decor-item--2 {
-    width: 19.6px;
-    left: -2.76px;
-    top: 42.4%;
+  width: 19.6px;
+  left: -2.76px;
+  top: 42.4%;
 }
 
 /* Нижний правый угол */
 .game .game-decor-item--3 {
-    width: 25.38px;
-    right: 29.14px;
-    bottom: -6.93px;
+  width: 25.38px;
+  right: 29.14px;
+  bottom: -6.93px;
 }
 
 .game .game-decor-item--4 {
-    width: 19.6px;
-    right: 63.97px;
-    bottom: -0.92px;
+  width: 19.6px;
+  right: 63.97px;
+  bottom: -0.92px;
 }
 
 .game .game-decor-item--5 {
-    width: 7.84px;
-    right: 57.78px;
-    bottom: 5.68px;
+  width: 7.84px;
+  right: 57.78px;
+  bottom: 5.68px;
 }
 
 /* Маленькая деталь слева */
 .game .game-decor-item--6 {
-    width: 7.84px;
-    left: 2.76px;
-    top: 55.8%;
+  width: 7.84px;
+  left: 2.76px;
+  top: 55.8%;
 }
 
 /* Камешек внизу */
 .game .game-decor-item--7 {
-    width: 24.73px;
-    left: 47.38px;
-    bottom: 11.46px;
+  width: 24.73px;
+  left: 47.38px;
+  bottom: 11.46px;
 }
 
 /* Нижний левый листочек */
 .game .game-decor-item--8 {
-    width: 15.53px;
-    left: 2.84px;
-    bottom: -6.69px;
+  width: 15.53px;
+  left: 2.84px;
+  bottom: -6.69px;
 }
 
 .game .visual {
@@ -523,7 +523,7 @@ button {
   width: 100%;
 }
 
-.not-fill{
+.not-fill {
   max-width: 90%;
 }
 
@@ -629,7 +629,7 @@ dialog button {
   #viewport {
     position: relative;
     inset: auto;
-    padding: 24px;
+    padding: 32px 12px 0;
     width: 100%;
   }
 
@@ -716,10 +716,10 @@ dialog button {
   .about .checker {
     display: none;
   }
-  
-  .not-fill{
-  max-width: 90%;
-}
+
+  .not-fill {
+    max-width: 90%;
+  }
 
   .profile-image {
     width: 230px;
@@ -959,95 +959,93 @@ dialog button {
   .leisure .visual .tablet-leisure {
     display: block;
   }
-  
+
   /* Сцена на всю карточку, а не на одну колонку */
-    .orange .orange-scene {
-        position: absolute;
-        inset: 0;
+  .orange .orange-scene {
+    position: absolute;
+    inset: 0;
 
-        width: 100%;
-        height: 100%;
-    }
+    width: 100%;
+    height: 100%;
+  }
 
-    /* Видео на всю сцену */
-    .orange .orange-scene > .background-mandarin {
-        position: absolute;
-        inset: 0;
+  /* Видео на всю сцену */
+  .orange .orange-scene > .background-mandarin {
+    position: absolute;
+    inset: 0;
 
-        display: block;
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        max-height: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
 
-        margin: 0;
-        transform: none;
+    margin: 0;
+    transform: none;
 
-        object-fit: cover;
-        object-position: center;
-    }
-    
-    .orange .orange-scene > .background-mandarin {
-        /* Настройки для подбора */
-        --mandarin-scale: 1.4;
-        --mandarin-x: 0px;
-        --mandarin-y: 0px;
+    object-fit: cover;
+    object-position: center;
+  }
 
-        transform-origin: center;
-        transform:
-            translate(var(--mandarin-x), var(--mandarin-y))
-            scale(var(--mandarin-scale));
+  .orange .orange-scene > .background-mandarin {
+    /* Настройки для подбора */
+    --mandarin-scale: 1.4;
+    --mandarin-x: 0px;
+    --mandarin-y: 0px;
 
-        outline: none;
-    }
-    
-    .not-fill{
-  max-width: 100%;
-}
+    transform-origin: center;
+    transform: translate(var(--mandarin-x), var(--mandarin-y)) scale(var(--mandarin-scale));
+
+    outline: none;
+  }
+
+  .not-fill {
+    max-width: 100%;
+  }
 }
 
 /* Десктоп и мобильная версия */
 @media (width >= 960px), (width < 550px) {
-    .game {
-        --game-overlap: 16px;
+  .game {
+    --game-overlap: 16px;
 
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
 
-    /* Описание имеет высоту по содержимому */
-    .game > .casecopy {
-        flex: 0 0 auto;
-        min-width: 0;
-        z-index: 2;
-    }
+  /* Описание имеет высоту по содержимому */
+  .game > .casecopy {
+    flex: 0 0 auto;
+    min-width: 0;
+    z-index: 2;
+  }
 
-    /* Видео занимает место, оставшееся под описанием */
-    .game > .visual {
-        position: relative;
-        inset: auto;
+  /* Видео занимает место, оставшееся под описанием */
+  .game > .visual {
+    position: relative;
+    inset: auto;
 
-        flex: 1 1 0;
-        min-height: 0;
-        width: 100%;
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
 
-        margin-top: calc(-0.5 * var(--game-overlap));
+    margin-top: calc(-0.5 * var(--game-overlap));
 
-        z-index: 3;
-    }
+    z-index: 3;
+  }
 
-    .game .visual .visual-game {
-        position: absolute;
-        inset: 0;
+  .game .visual .visual-game {
+    position: absolute;
+    inset: 0;
 
-        display: block;
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        max-height: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
 
-        object-fit: contain;
-        object-position: center;
-    }
+    object-fit: contain;
+    object-position: center;
+  }
 }
