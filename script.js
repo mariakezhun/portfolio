@@ -127,3 +127,26 @@ if (orangeCard) {
 window.addEventListener("resize", updatePhoneGeometry);
 
 updatePhoneGeometry();
+
+document.addEventListener('DOMContentLoaded', function() {
+    var video = document.getElementById('myVideo');
+    
+    // Явно устанавливаем свойство muted через JS
+    video.muted = true;
+    video.defaultMuted = true; // На случай, если браузер кэширует состояние
+    
+    // Принудительно запускаем воспроизведение
+    var playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.then(function() {
+        // Воспроизведение успешно запущено
+        console.log('Автовоспроизведение запущено');
+      }).catch(function(error) {
+        // Если браузер всё ещё блокирует, показываем сообщение
+        console.log('Автовоспроизведение заблокировано:', error);
+        // Можно показать кнопку "Воспроизвести" или просто оставить видео с элементами управления
+        video.controls = true;
+      });
+    }
+  });
