@@ -1,0 +1,1055 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Geist, Arial, sans-serif;
+  color: #1d1d1f;
+  background: white;
+}
+
+#viewport {
+  position: fixed;
+  inset: 24px;
+}
+
+#layout {
+  position: absolute;
+  transform-origin: top left;
+  display: grid;
+  grid-template-columns: 257px var(--center) var(--center) 257px;
+  gap: 12px;
+}
+
+.column {
+  display: grid;
+  gap: 12px;
+  min-height: 0;
+}
+
+.left {
+  grid-template-rows: var(--about) 1fr;
+}
+
+.second {
+  grid-template-rows: 1fr var(--closed);
+}
+
+.third {
+  grid-template-rows: var(--leisure) 1fr;
+}
+
+.right {
+  grid-template-rows: var(--work) 1fr;
+}
+
+.card {
+  position: relative;
+  padding: 16px;
+  border-radius: 24px;
+  background: #f5f5f7;
+  min-height: 0;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.caption {
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #727272;
+}
+
+.location {
+  margin-bottom: 8px;
+}
+
+.about {
+  overflow: hidden;
+}
+
+.checker {
+  position: absolute;
+  left: 4px;
+  right: 0;
+  bottom: 0;
+  height: 277px;
+  background: conic-gradient(#ebebed 25%, #f8f8f9 0 50%, #ebebed 0 75%, #f8f8f9 0) 0 0/36px 36px;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+button {
+  font-family: inherit;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.contact {
+  height: 44px;
+  border-radius: 100px;
+  background: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  position: relative;
+}
+
+/* Общий слой ховера для контактов и кнопок со стрелкой.
+   .arrow уже имеет position: absolute — его не меняем. */
+.contact::after,
+.arrow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--hover-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+/* Светлые кнопки: Email и CV */
+.contact {
+  --hover-overlay: rgb(188 195 208 / 25%);
+  /* --hover-overlay: #F5F5F780; */
+}
+
+/* Чёрные кнопки: Telegram и стрелки */
+.contact.telegram,
+.arrow {
+  --hover-overlay: rgb(242 243 247 / 12%);
+}
+
+/* Ховер только поверх фона */
+@media (hover: hover) {
+  .contact:hover,
+  .arrow:hover {
+    background-image: linear-gradient(var(--hover-overlay), var(--hover-overlay));
+  }
+}
+
+.telegram {
+  grid-column: 1/-1;
+  background: #1d1d1f;
+  color: white;
+}
+
+.contact.telegram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.contact-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.profile-image {
+  display: block;
+  position: absolute;
+  width: 291px;
+  height: 291px;
+  right: -38px;
+  bottom: -14px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.skills {
+  display: flex;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 225px;
+}
+
+.tag {
+  background: white;
+  border-radius: 100px;
+  height: 36px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.tag.icon {
+  padding-left: 6px;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.claude {
+  background: #d77655;
+  color: white;
+}
+
+.blender {
+  color: #ea7600;
+}
+
+.white {
+  background: white;
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.casecopy {
+  position: relative;
+  z-index: 2;
+}
+
+.arrow {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1d1d1f;
+  color: white;
+  display: grid;
+  place-items: center;
+  z-index: 4;
+}
+
+.arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+.orange {
+    isolation: isolate;
+}
+
+/* Вся сцена занимает карточку */
+.orange .orange-scene {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* Оба слоя телефона получают одинаковую геометрию */
+.orange .phone-layer {
+    position: absolute;
+
+    left: var(--phone-left);
+    top: var(--phone-top);
+    width: var(--phone-width);
+    height: var(--phone-height);
+}
+
+/* Картинка внутри телефона */
+.orange .phone-layer--bottom {
+    z-index: 1;
+}
+
+/* Мандарины поверх картинки внутри телефона */
+.orange .orange-scene .background-mandarin {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: block;
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+}
+
+/* Рамка и модалка поверх мандаринов */
+.orange .phone-layer--top {
+    z-index: 3;
+}
+
+.orange .phone-layer--top .visual-phone {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+}
+
+/* Обрезка нижней картинки по области экрана.
+   Эти отступы пока предварительные. */
+.orange .phone-screen {
+    position: absolute;
+    inset: 3% 4%;
+
+    overflow: hidden;
+    border-radius: 12% / 6%;
+}
+
+.orange .phone-screen-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.orange .phone-layer--top .phone-frame {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+}
+
+/* Модалка поверх рамки */
+.orange .phone-layer--top .visual-phone {
+    z-index: 1;
+}
+
+/* Описание и кнопка — выше всей сцены */
+.orange .casecopy {
+    position: relative;
+    z-index: 1;
+}
+
+.orange .arrow {
+    z-index: 2;
+}
+
+/* .background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+} */
+
+.visual {
+  position: absolute;
+  top: 140px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.visual img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.orange .visual {
+  top: 131px;
+  bottom: 4px;
+}
+
+.orange .visual img {
+  height: 100%;
+  width: auto;
+}
+
+.leisure .visual {
+  top: 97px;
+  left: -2px;
+  right: 3px;
+  bottom: -5px;
+}
+
+.leisure .visual img {
+  width: 100%;
+  height: 100%;
+}
+
+.game {
+  background: #68a214;
+  overflow: visible;
+}
+
+/* Декоративный слой занимает всю карточку */
+.game .game-decor {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+/* Экспортированные детали */
+.game .game-decor-item {
+    position: absolute;
+    display: block;
+
+    height: auto;
+    max-width: none;
+}
+
+/* Верхний листочек */
+.game .game-decor-item--1 {
+    width: 19.83px;
+    left: 9.27px;
+    top: -5.8px;
+}
+
+/* Деталь у левого края */
+.game .game-decor-item--2 {
+    width: 19.6px;
+    left: -2.76px;
+    top: 42.4%;
+}
+
+/* Нижний правый угол */
+.game .game-decor-item--3 {
+    width: 25.38px;
+    right: 29.14px;
+    bottom: -6.93px;
+}
+
+.game .game-decor-item--4 {
+    width: 19.6px;
+    right: 63.97px;
+    bottom: -0.92px;
+}
+
+.game .game-decor-item--5 {
+    width: 7.84px;
+    right: 57.78px;
+    bottom: 5.68px;
+}
+
+/* Маленькая деталь слева */
+.game .game-decor-item--6 {
+    width: 7.84px;
+    left: 2.76px;
+    top: 55.8%;
+}
+
+/* Камешек внизу */
+.game .game-decor-item--7 {
+    width: 24.73px;
+    left: 47.38px;
+    bottom: 11.46px;
+}
+
+/* Нижний левый листочек */
+.game .game-decor-item--8 {
+    width: 15.53px;
+    left: 2.84px;
+    bottom: -6.69px;
+}
+
+.game .visual {
+  top: 108px;
+}
+
+.game .visual .visual-game {
+  height: 100%;
+  width: auto;
+  z-index: 10;
+  max-width: 100%;
+}
+
+.closed {
+  display: flex;
+  align-items: center;
+}
+
+.closed .white {
+  width: 100%;
+}
+
+.not-fill{
+  max-width: 90%;
+}
+
+.badge {
+  position: absolute;
+  right: 2px;
+  top: 8px;
+  transform: rotate(11deg);
+  border-radius: 100px;
+  background: #1d1d1f;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  z-index: 3;
+  text-transform: uppercase;
+}
+
+.resume h2 {
+  margin-bottom: 16px;
+}
+
+.entries {
+  display: grid;
+  gap: 8px;
+}
+
+.date {
+  margin-bottom: 8px;
+}
+
+.resume h3 {
+  margin-bottom: 2px;
+}
+
+button:focus-visible {
+  outline: 3px solid #7652ff;
+  outline-offset: 3px;
+}
+
+#debug {
+  position: fixed;
+  left: 24px;
+  bottom: 3px;
+  background: #fffd;
+  color: #666;
+  font: 10px monospace;
+  display: none;
+}
+
+body.debug #debug {
+  display: block;
+}
+
+dialog {
+  border: 0;
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 380px;
+}
+
+dialog::backdrop {
+  background: #0004;
+}
+
+dialog button {
+  padding: 10px 20px;
+  margin-top: 16px;
+  border-radius: 30px;
+}
+
+.tablet-leisure,
+.compact-only {
+  display: none;
+}
+
+.coin-container {
+  position: absolute;
+  width: 87px;
+  height: 87px;
+  bottom: -5px;
+  right: -20px;
+  z-index: 10;
+}
+
+.coin-container .coin {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.profile-copy {
+  position: relative;
+  z-index: 1;
+}
+
+@media (width < 960px) {
+  body {
+    overflow-y: auto;
+  }
+
+  #viewport {
+    position: relative;
+    inset: auto;
+    padding: 24px;
+    width: 100%;
+  }
+
+  #layout {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    transform: none;
+    left: auto;
+    top: auto;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+
+  .about {
+    min-height: 252px;
+    height: auto;
+  }
+
+  .profile-copy {
+    max-width: 300px;
+  }
+
+  .skills {
+    display: block;
+  }
+
+  .tags {
+    width: 100%;
+  }
+
+  .tag {
+    flex: none;
+    white-space: nowrap;
+  }
+
+  .compact-only {
+    display: flex;
+  }
+
+  .resume {
+    height: auto;
+  }
+
+  .closed {
+    height: auto;
+    min-height: 180px;
+  }
+
+  .orange {
+    height: 592px;
+  }
+
+  .leisure {
+    height: 286.792px;
+  }
+
+  .game {
+    height: 467.879px;
+  }
+
+  #debug {
+    z-index: 20;
+  }
+}
+
+@media (550px <=width < 960px) {
+  .about .checker {
+    display: none;
+  }
+  
+  .not-fill{
+  max-width: 90%;
+}
+
+  .profile-image {
+    width: 230px;
+    height: 230px;
+    right: -7.5px;
+    bottom: -20px;
+  }
+
+  .profile-copy {
+    width: 300px;
+    max-width: calc(100% - 190px);
+  }
+
+  .orange {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    height: auto;
+    min-height: 372px;
+    align-items: start;
+  }
+
+  .orange .casecopy {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .orange .visual {
+    position: relative;
+    inset: auto;
+    grid-column: 1;
+    grid-row: 1;
+    height: 340px;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .orange .visual img {
+    height: 340px;
+    width: auto;
+    max-width: none;
+    flex-shrink: 0;
+  }
+
+  .closed {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    min-height: 146px;
+    align-items: center;
+  }
+
+  .closed .white {
+    min-width: 0;
+  }
+
+  .closed .badge {
+    display: none;
+  }
+
+  .coin-container {
+    position: relative;
+    inset: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 114px;
+    min-width: 0;
+  }
+
+  .coin-container .coin {
+    width: 178px;
+    height: 178px;
+    max-width: none;
+    flex-shrink: 0;
+  }
+
+  .leisure {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    height: auto;
+    min-height: 146px;
+    align-items: start;
+  }
+
+  .leisure .casecopy {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .leisure .visual {
+    position: relative;
+    inset: auto;
+    grid-column: 1;
+    grid-row: 1;
+    height: 114px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .leisure .visual .main-leisure {
+    display: none;
+    z-index: 10;
+  }
+
+  .leisure .visual .tablet-leisure {
+    display: block;
+    width: 178px;
+    height: 178px;
+    max-width: none;
+    max-height: none;
+    flex-shrink: 0;
+  }
+
+  .game {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    height: auto;
+    min-height: 376px;
+    align-items: start;
+  }
+
+  .game .casecopy {
+    grid-column: 1;
+    grid-row: 1;
+    margin-right: -16px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .game .visual {
+    position: relative;
+    inset: auto;
+    grid-column: 2;
+    grid-row: 1;
+    height: 344px;
+    min-width: 0;
+    align-items: flex-end;
+  }
+
+  .game .visual .visual-game {
+    width: 310px;
+    height: 378px;
+    max-width: none;
+    max-height: none;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  .game .arrow {
+    display: grid;
+    z-index: 10;
+  }
+}
+
+@media (width < 550px) {
+  .about {
+    overflow: visible;
+  }
+
+  .about .checker {
+    height: 76px;
+    width: 76px;
+    left: auto;
+    right: -7px;
+    top: -16px;
+    bottom: auto;
+    background-size: 18px 18px;
+    pointer-events: none;
+  }
+
+  .profile-image {
+    width: 76px;
+    height: 76px;
+    right: -7px;
+    top: -16px;
+    bottom: auto;
+    border-radius: 100px;
+  }
+
+  .profile-copy {
+    max-width: 100%;
+  }
+
+  .profile-copy .location,
+  .profile-copy h2 {
+    padding-right: 60px;
+  }
+
+  .leisure .visual {
+    top: 104px;
+    bottom: -5px;
+    left: -1px;
+    right: 5px;
+  }
+
+  .leisure .visual .main-leisure {
+    width: 308px;
+    height: 192px;
+    max-width: 100%;
+    max-height: none;
+    z-index: 10;
+  }
+
+  .game .visual .visual-game {
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 10;
+  }
+
+  .closed {
+    min-height: 200px;
+  }
+}
+
+/* Десктоп и мобильная версия */
+.leisure .visual .main-leisure {
+  display: block;
+  z-index: 10;
+}
+
+.leisure .visual .tablet-leisure {
+  display: none;
+}
+
+/* Только планшет: 550–959 px */
+@media (550px <=width < 960px) {
+  .leisure .visual .main-leisure {
+    display: none;
+  }
+
+  .leisure .visual .tablet-leisure {
+    display: block;
+  }
+  
+  /* Сцена на всю карточку, а не на одну колонку */
+    .orange .orange-scene {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Видео на всю сцену */
+    .orange .orange-scene > .background-mandarin {
+        position: absolute;
+        inset: 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+
+        margin: 0;
+        transform: none;
+
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .orange .orange-scene > .background-mandarin {
+        /* Настройки для подбора */
+        --mandarin-scale: 1.4;
+        --mandarin-x: 0px;
+        --mandarin-y: 0px;
+
+        transform-origin: center;
+        transform:
+            translate(var(--mandarin-x), var(--mandarin-y))
+            scale(var(--mandarin-scale));
+
+        outline: none;
+    }
+    
+    .not-fill{
+  max-width: 100%;
+}
+}
+
+/* Десктоп и мобильная версия */
+@media (width >= 960px), (width < 550px) {
+    .game {
+        --game-overlap: 16px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Описание имеет высоту по содержимому */
+    .game > .casecopy {
+        flex: 0 0 auto;
+        min-width: 0;
+        z-index: 2;
+    }
+
+    /* Видео занимает место, оставшееся под описанием */
+    .game > .visual {
+        position: relative;
+        inset: auto;
+
+        flex: 1 1 0;
+        min-height: 0;
+        width: 100%;
+
+        margin-top: calc(-0.5 * var(--game-overlap));
+
+        z-index: 3;
+    }
+
+    .game .visual .visual-game {
+        position: absolute;
+        inset: 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+
+        object-fit: contain;
+        object-position: center;
+    }
+}
