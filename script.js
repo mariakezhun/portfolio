@@ -128,25 +128,39 @@ window.addEventListener("resize", updatePhoneGeometry);
 
 updatePhoneGeometry();
 
-document.addEventListener('DOMContentLoaded', function() {
-    var video = document.getElementById('myVideo');
-    
-    // Явно устанавливаем свойство muted через JS
+const videos = [...document.querySelectorAll("video")];
+const startAnimationsButton = document.querySelector("#start-animations");
+
+videos.forEach((video) => {
     video.muted = true;
-    video.defaultMuted = true; // На случай, если браузер кэширует состояние
-    
-    // Принудительно запускаем воспроизведение
-    var playPromise = video.play();
-    
-    if (playPromise !== undefined) {
-      playPromise.then(function() {
-        // Воспроизведение успешно запущено
-        console.log('Автовоспроизведение запущено');
-      }).catch(function(error) {
-        // Если браузер всё ещё блокирует, показываем сообщение
-        console.log('Автовоспроизведение заблокировано:', error);
-        // Можно показать кнопку "Воспроизвести" или просто оставить видео с элементами управления
-        video.controls = true;
-      });
-    }
-  });
+    video.defaultMuted = true;
+
+    video.play().catch((error) => {
+        if (error.name === "NotAllowedError") {
+            startAnimationsButton.hidden = false;
+        } else {
+            console.warn(
+                "Ошибка видео:",
+                video.className,
+                error.name,
+                error.message
+            );
+        }
+    });
+});
+
+startAnimationsButton.addEventListener("click", () => {
+    // Запрашиваем запуск непосредственно при нажатии.
+    const playbackRequests = videos.map((video) => {
+        video.muted = true;
+        return video.play();
+    });
+
+    Promise.allSettled(playbackRequests).then((results) => {
+        const allStarted = results.every(
+            (result) => result.status === "fulfilled"
+        );
+
+        startAnimationsButton.hidden = allStarted;
+    });
+});
