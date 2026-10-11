@@ -337,7 +337,7 @@ button {
    Эти отступы пока предварительные. */
 .orange .phone-screen {
     position: absolute;
-    inset: 3% 4%;
+    /* inset: 3% 4%; */
 
     overflow: hidden;
     border-radius: 12% / 6%;
