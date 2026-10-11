@@ -629,7 +629,7 @@ dialog button {
   #viewport {
     position: relative;
     inset: auto;
-    padding: 32px 12px 32px;
+    padding: 24px 12px 24px;
     width: 100%;
   }
 
