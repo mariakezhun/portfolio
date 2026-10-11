@@ -661,7 +661,7 @@ dialog button {
   }
 
   .about {
-    min-height: 252px;
+    /* min-height: 252px; */
     height: auto;
   }
 
