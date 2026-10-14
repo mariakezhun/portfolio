@@ -126,32 +126,95 @@ window.addEventListener("resize", updatePhoneGeometry);
 
 updatePhoneGeometry();
 
-const videos = [...document.querySelectorAll("video")];
-const startAnimationsButton = document.querySelector("#start-animations");
+{
+  // Только ролики с автозапуском.
+  // Видео с ручным управлением не затрагиваем.
+  const videos = [
+    ...document.querySelectorAll("video[autoplay]"),
+  ];
 
-videos.forEach((video) => {
-  video.muted = true;
-  video.defaultMuted = true;
+  const startAnimationsButton =
+    document.querySelector("#start-animations");
 
-  video.play().catch((error) => {
-    if (error.name === "NotAllowedError") {
-      startAnimationsButton.hidden = false;
-    } else {
-      console.warn("Ошибка видео:", video.className, error.name, error.message);
-    }
-  });
-});
+  const visibleVideos = new Set();
+  const blockedVideos = new Set();
 
-startAnimationsButton.addEventListener("click", () => {
-  // Запрашиваем запуск непосредственно при нажатии.
-  const playbackRequests = videos.map((video) => {
+  const updateStartButton = () => {
+    if (!startAnimationsButton) return;
+
+    const hasBlockedVisibleVideo = [...visibleVideos].some(
+      (video) => blockedVideos.has(video)
+    );
+
+    startAnimationsButton.hidden = !hasBlockedVisibleVideo;
+  };
+
+  const playVideo = (video) => {
     video.muted = true;
-    return video.play();
+    video.defaultMuted = true;
+
+    return video.play()
+      .then(() => {
+        blockedVideos.delete(video);
+        updateStartButton();
+      })
+      .catch((error) => {
+        if (error.name === "NotAllowedError") {
+          blockedVideos.add(video);
+        } else if (error.name !== "AbortError") {
+          console.warn(
+            "Ошибка видео:",
+            video.currentSrc,
+            error.name,
+            error.message
+          );
+        }
+
+        updateStartButton();
+      });
+  };
+
+  videos.forEach((video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
   });
 
-  Promise.allSettled(playbackRequests).then((results) => {
-    const allStarted = results.every((result) => result.status === "fulfilled");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
 
-    startAnimationsButton.hidden = allStarted;
+      if (entry.isIntersecting) {
+        visibleVideos.add(video);
+
+        if (!document.hidden) {
+          playVideo(video);
+        }
+      } else {
+        visibleVideos.delete(video);
+        video.pause();
+      }
+    });
+
+    updateStartButton();
+  }, {
+    threshold: 0,
   });
-});
+
+  videos.forEach((video) => observer.observe(video));
+
+  startAnimationsButton?.addEventListener("click", () => {
+    // Вызовы play() выполняются непосредственно при нажатии.
+    visibleVideos.forEach((video) => playVideo(video));
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    visibleVideos.forEach((video) => {
+      if (document.hidden) {
+        video.pause();
+      } else {
+        playVideo(video);
+      }
+    });
+  });
+}
