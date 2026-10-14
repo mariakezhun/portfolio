@@ -167,28 +167,3 @@ if (caseIntro && caseBackground) {
     });
   }
 }
-
-{
-  const caseLoopVideos = document.querySelectorAll(
-    ".case-main video[data-case-loop]"
-  );
-
-  caseLoopVideos.forEach((video) => {
-    // Отключаем встроенный повтор:
-    // теперь повтором управляет обработчик ended.
-    video.loop = false;
-
-    video.addEventListener("ended", () => {
-      video.currentTime = 0;
-
-      video.play().catch((error) => {
-        console.warn(
-          "Не удалось повторить видео кейса:",
-          video.currentSrc,
-          error.name,
-          error.message
-        );
-      });
-    });
-  });
-}
