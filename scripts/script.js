@@ -126,95 +126,95 @@ window.addEventListener("resize", updatePhoneGeometry);
 
 updatePhoneGeometry();
 
-// {
-//   // Только ролики с автозапуском.
-//   // Видео с ручным управлением не затрагиваем.
-//   const videos = [
-//     ...document.querySelectorAll("video[autoplay]"),
-//   ];
+{
+  // Только ролики с автозапуском.
+  // Видео с ручным управлением не затрагиваем.
+  const videos = [
+    ...document.querySelectorAll("video[autoplay]"),
+  ];
 
-//   const startAnimationsButton =
-//     document.querySelector("#start-animations");
+  const startAnimationsButton =
+    document.querySelector("#start-animations");
 
-//   const visibleVideos = new Set();
-//   const blockedVideos = new Set();
+  const visibleVideos = new Set();
+  const blockedVideos = new Set();
 
-//   const updateStartButton = () => {
-//     if (!startAnimationsButton) return;
+  const updateStartButton = () => {
+    if (!startAnimationsButton) return;
 
-//     const hasBlockedVisibleVideo = [...visibleVideos].some(
-//       (video) => blockedVideos.has(video)
-//     );
+    const hasBlockedVisibleVideo = [...visibleVideos].some(
+      (video) => blockedVideos.has(video)
+    );
 
-//     startAnimationsButton.hidden = !hasBlockedVisibleVideo;
-//   };
+    startAnimationsButton.hidden = !hasBlockedVisibleVideo;
+  };
 
-//   const playVideo = (video) => {
-//     video.muted = true;
-//     video.defaultMuted = true;
+  const playVideo = (video) => {
+    video.muted = true;
+    video.defaultMuted = true;
 
-//     return video.play()
-//       .then(() => {
-//         blockedVideos.delete(video);
-//         updateStartButton();
-//       })
-//       .catch((error) => {
-//         if (error.name === "NotAllowedError") {
-//           blockedVideos.add(video);
-//         } else if (error.name !== "AbortError") {
-//           console.warn(
-//             "Ошибка видео:",
-//             video.currentSrc,
-//             error.name,
-//             error.message
-//           );
-//         }
+    return video.play()
+      .then(() => {
+        blockedVideos.delete(video);
+        updateStartButton();
+      })
+      .catch((error) => {
+        if (error.name === "NotAllowedError") {
+          blockedVideos.add(video);
+        } else if (error.name !== "AbortError") {
+          console.warn(
+            "Ошибка видео:",
+            video.currentSrc,
+            error.name,
+            error.message
+          );
+        }
 
-//         updateStartButton();
-//       });
-//   };
+        updateStartButton();
+      });
+  };
 
-//   videos.forEach((video) => {
-//     video.muted = true;
-//     video.defaultMuted = true;
-//     video.playsInline = true;
-//   });
+  videos.forEach((video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+  });
 
-//   const observer = new IntersectionObserver((entries) => {
-//     entries.forEach((entry) => {
-//       const video = entry.target;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
 
-//       if (entry.isIntersecting) {
-//         visibleVideos.add(video);
+      if (entry.isIntersecting) {
+        visibleVideos.add(video);
 
-//         if (!document.hidden) {
-//           playVideo(video);
-//         }
-//       } else {
-//         visibleVideos.delete(video);
-//         video.pause();
-//       }
-//     });
+        if (!document.hidden) {
+          playVideo(video);
+        }
+      } else {
+        visibleVideos.delete(video);
+        video.pause();
+      }
+    });
 
-//     updateStartButton();
-//   }, {
-//     threshold: 0,
-//   });
+    updateStartButton();
+  }, {
+    threshold: 0,
+  });
 
-//   videos.forEach((video) => observer.observe(video));
+  videos.forEach((video) => observer.observe(video));
 
-//   startAnimationsButton?.addEventListener("click", () => {
-//     // Вызовы play() выполняются непосредственно при нажатии.
-//     visibleVideos.forEach((video) => playVideo(video));
-//   });
+  startAnimationsButton?.addEventListener("click", () => {
+    // Вызовы play() выполняются непосредственно при нажатии.
+    visibleVideos.forEach((video) => playVideo(video));
+  });
 
-//   document.addEventListener("visibilitychange", () => {
-//     visibleVideos.forEach((video) => {
-//       if (document.hidden) {
-//         video.pause();
-//       } else {
-//         playVideo(video);
-//       }
-//     });
-//   });
-// }
+  document.addEventListener("visibilitychange", () => {
+    visibleVideos.forEach((video) => {
+      if (document.hidden) {
+        video.pause();
+      } else {
+        playVideo(video);
+      }
+    });
+  });
+}
