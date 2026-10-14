@@ -9,6 +9,7 @@ body {
   font-family: Geist, Arial, sans-serif;
   color: #1d1d1f;
   background: white;
+  -webkit-font-smoothing: antialiased;
 }
 
 #viewport {
@@ -110,75 +111,8 @@ p {
   margin-top: 16px;
 }
 
-button {
-  font-family: inherit;
-  border: 0;
-  cursor: pointer;
-  color: inherit;
-}
-
-.contact {
-  height: 44px;
-  border-radius: 100px;
-  background: white;
-  font-size: 12px;
-  letter-spacing: 1px;
-  font-weight: 700;
-  position: relative;
-}
-
-/* Общий слой ховера для контактов и кнопок со стрелкой.
-   .arrow уже имеет position: absolute — его не меняем. */
-.contact::after,
-.arrow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: var(--hover-overlay);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 150ms ease;
-}
-
-/* Светлые кнопки: Email и CV */
-.contact {
-  --hover-overlay: rgb(188 195 208 / 25%);
-  /* --hover-overlay: #F5F5F780; */
-}
-
-/* Чёрные кнопки: Telegram и стрелки */
-.contact.telegram,
-.arrow {
-  --hover-overlay: rgb(242 243 247 / 12%);
-}
-
-/* Ховер только поверх фона */
-@media (hover: hover) {
-  .contact:hover,
-  .arrow:hover {
-    background-image: linear-gradient(var(--hover-overlay), var(--hover-overlay));
-  }
-}
-
-.telegram {
-  grid-column: 1/-1;
-  background: #1d1d1f;
-  color: white;
-}
-
-.contact.telegram {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.contact-icon {
-  display: block;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
+.contacts .telegram {
+  grid-column: 1 / -1;
 }
 
 .profile-image {

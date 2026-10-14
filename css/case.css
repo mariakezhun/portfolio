@@ -1,0 +1,935 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap");
+
+/* Базовые настройки */
+
+* {
+  box-sizing: border-box;
+}
+
+body.case-page {
+  margin: 0;
+  color: #1d1d1f;
+  background: #f5f5f7;
+  font-family: Geist, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.case-page :where(h1, h2, h3, p, figure, blockquote) {
+  margin: 0;
+}
+
+.case-page h1,
+.case-page h2 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.case-page h3 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.case-page p,
+.case-page li,
+.case-page td,
+.case-page th {
+  font-size: 14px;
+  line-height: 20px;
+  /* line-height: 18px; */
+  letter-spacing: -0.5px;
+}
+
+.case-page p,
+.case-page li {
+  overflow-wrap: anywhere;
+}
+
+.case-page img {
+  display: block;
+  max-width: 100%;
+}
+
+/* .case-page a {
+  color: inherit;
+} */
+
+.case-padding-full {
+  min-width: 0;
+  padding: 12px 0;
+}
+
+.case-padding-top {
+  min-width: 0;
+  padding: 12px 0 0;
+}
+
+.text-muted {
+  color: #727272;
+}
+
+/* Шапка */
+
+.case-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  height: 76px;
+  padding: 16px 16px 16px;
+
+  background: #fff;
+  border-radius: 0 0 24px 24px;
+}
+
+.case-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.case-author,
+.case-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.case-author-name {
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.case-avatar {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.case-button {
+  --button-background: #f5f5f7;
+}
+
+.telegram {
+  padding-inline: 18px 10px;
+}
+
+/* Основная структура */
+
+.case-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: calc(100% - 32px);
+  max-width: 700px;
+  margin: 12px auto 32px;
+}
+
+.case-intro,
+.case-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.case-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  background: white;
+  border-radius: 24px;
+}
+
+.case-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.case-blocks > * {
+  min-width: 0;
+}
+
+/* Метаданные кейса */
+
+.case-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case-meta-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 12px;
+}
+
+.case-meta-row--second {
+  grid-template-columns: minmax(0, 1fr) 255px;
+}
+
+.case-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px;
+  background: white;
+  border-radius: 24px;
+}
+
+.case-caption {
+  color: #727272;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.case-result-label {
+  color: #727272;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.case-result-value {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Фон */
+
+.case-background {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.background-mandarin {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+
+  display: block;
+  width: 1000px;
+  /* height: 1440px; */
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* .case-background::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  background: linear-gradient(transparent, #f5f5f7);
+} */
+
+/* Карточки решений */
+
+.case-decision {
+  --decision-overlap: 24px;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-decision-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 120px;
+  padding: 16px;
+  border-radius: 24px;
+  background: #f5f5f7;
+  position: relative;
+  min-width: 0;
+}
+
+.case-decision-card--light {
+  padding-right: 56px;
+  margin-right: calc(var(--decision-overlap) / -2);
+}
+
+.case-decision-card--dark {
+  z-index: 1;
+  margin-left: calc(var(--decision-overlap) / -2);
+  padding-left: 40px;
+  background: #1d1d1f;
+  color: white;
+  overflow: visible;
+}
+
+.case-decision-arrow {
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  left: -22px;
+  transform: translateY(-50%);
+
+  display: grid;
+  place-items: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+}
+
+.case-decision-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+.case-quote {
+  padding-left: 8px;
+  border-left: 2px solid #1d1d1f;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+}
+
+/* Сетки и плитки */
+
+.case-grid {
+  display: grid;
+  gap: 4px;
+}
+
+.case-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 0;
+  min-height: 136px;
+  padding: 16px;
+  border-radius: 24px;
+  background: #f5f5f7;
+}
+
+.case-tile--dark {
+  background: #1d1d1f;
+  color: white;
+}
+
+.case-tile--green {
+  background: #68a214;
+  color: white;
+}
+
+.case-tile--orange {
+  background: #ff9d22;
+  color: white;
+}
+
+.case-tile--tangerine {
+  background: #ff6422;
+  color: white;
+}
+
+.case-tile-title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.case-tile-value {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.case-tile-text {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.case-tile-note {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+}
+
+/* Порядок сценариев */
+
+.case-scenarios .scenario-road {
+  order: 3;
+}
+
+.case-scenarios .scenario-family {
+  order: 2;
+}
+
+.case-scenarios .scenario-city {
+  order: 4;
+}
+
+.case-scenarios .scenario-choice {
+  order: 1;
+}
+
+/* Общие настройки прокручиваемых лент */
+
+.case-table-scroll,
+.case-image-strip,
+.case-phone-gallery {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  margin-inline: -16px;
+  padding-inline: 16px;
+}
+
+.case-table-scroll,
+.case-image-strip {
+  scrollbar-width: none;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+  cursor: grab;
+}
+
+.case-table-scroll::-webkit-scrollbar,
+.case-image-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.case-table-scroll.is-dragging,
+.case-image-strip.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.case-table-scroll:focus-visible,
+.case-image-strip:focus-visible {
+  outline: 2px solid #727272;
+  outline-offset: 4px;
+}
+
+/* Таблицы */
+
+/* Неподвижная область просмотра */
+.case-table-scroll {
+  width: calc(100% + 32px);
+  min-width: 0;
+  max-width: none;
+}
+
+/* Таблица движется вместе с рамкой и скруглениями */
+.case-table-frame {
+  width: 100%;
+  min-width: 450px;
+  border: 1px solid #1d1d1f;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.case-table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.case-table th,
+.case-table td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  border-right: 1px solid #1d1d1f;
+  border-bottom: 1px solid #1d1d1f;
+
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.case-table th {
+  background: #f5f5f7;
+  font-weight: 600;
+}
+
+.case-table tr > :last-child {
+  border-right: 0;
+}
+
+.case-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Пропорции колонок таблицы экспериментов */
+
+.case-table--experiments col:nth-child(1) {
+  width: 17%;
+}
+
+.case-table--experiments col:nth-child(2) {
+  width: 36%;
+}
+
+.case-table--experiments col:nth-child(3) {
+  width: 24%;
+}
+
+.case-table--experiments col:nth-child(4) {
+  width: 23%;
+}
+
+/* Пропорции колонок таблицы пути пользователя */
+
+.case-table--journey col:nth-child(1) {
+  width: 22%;
+}
+
+.case-table--journey col:nth-child(2) {
+  width: 31%;
+}
+
+.case-table--journey col:nth-child(3) {
+  width: 47%;
+}
+
+/* Лента изображений */
+
+.case-image-strip {
+  display: flex;
+  gap: 8px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.strip-img {
+  flex: none;
+  max-width: none;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ded {
+  width: auto;
+  height: var(--ded-height, 354px);
+  border-radius: 24px;
+}
+
+.ogorod {
+  width: 152px;
+  height: 160px;
+}
+
+/* Изображения и публикации */
+
+.case-media {
+  min-width: 0;
+  margin: 0;
+}
+
+.case-video,
+.case-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+/* Композиция: две горизонтальные картинки и одна вертикальная */
+
+.case-press {
+  display: grid;
+
+  /* Рассчитано по пропорциям картинок и двум промежуткам 8px */
+  grid-template-columns:
+    minmax(0, calc(64.6688105% - 8.9304916px))
+    minmax(0, 1fr);
+
+  gap: 8px;
+  align-items: start;
+  min-width: 0;
+}
+
+.case-press-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.case-press img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Горизонтальные изображения */
+.case-press-column > img {
+  aspect-ratio: 429.12 / 161.42;
+  object-fit: contain;
+}
+
+/* Вертикальное изображение */
+.case-press > img {
+  aspect-ratio: 230.88 / 317.93;
+  object-fit: contain;
+}
+
+/* Фреймы с примерами */
+
+.case-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+}
+
+.case-preview-frame {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #f5f5f7;
+  padding: 8px;
+}
+
+.croped-phone {
+  width: 100%;
+  max-width: 171.24px;
+  height: auto;
+}
+
+/* Нумерованные шаги */
+
+.case-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: steps;
+}
+
+.case-steps li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  counter-increment: steps;
+}
+
+.case-steps li::before {
+  content: counter(steps);
+  display: grid;
+  place-items: center;
+  align-self: start;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  font-weight: 600;
+}
+
+/* Галерея экранов */
+
+.case-phone-gallery {
+  display: flex;
+  gap: 8px;
+}
+
+.case-phone-gallery img {
+  flex: none;
+  align-self: start;
+  width: 184px;
+  max-width: none;
+  height: auto;
+  border-radius: 24px;
+}
+
+.case-pairs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.case-pairs img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+/* Результаты */
+
+.case-results {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-results .result-tnps {
+  grid-column: span 2;
+}
+
+/* Мобильная версия */
+
+@media (width < 550px) {
+  .case-header {
+    height: 64px;
+  }
+  .case-header-inner {
+    height: 32px;
+  }
+
+  .case-author,
+  .case-actions {
+    gap: 4px;
+  }
+
+  .case-author-name {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .case-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .case-main {
+    width: calc(100% - 24px);
+  }
+  /* 
+  .case-background {
+    height: 440px;
+  } */
+
+  .case-meta {
+    padding: 16px;
+    background: white;
+    border-radius: 24px;
+  }
+
+  .case-meta-row,
+  .case-meta-row--second {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .case-meta-item {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+
+  .case-decision {
+    grid-template-columns: 1fr;
+  }
+
+  .case-decision-card--light {
+    margin-right: 0;
+    margin-bottom: calc(var(--decision-overlap) / -2);
+    padding-right: 16px;
+    padding-bottom: 44px;
+  }
+
+  .case-decision-card--dark {
+    padding-left: 16px;
+    min-height: 100px;
+    gap: 12px;
+    margin-left: 0;
+    margin-top: calc(var(--decision-overlap) / -2);
+  }
+
+  .case-decision-arrow {
+    width: 32px;
+    height: 32px;
+    top: -16px;
+    left: 50%;
+    bottom: auto;
+    transform: translateX(-50%);
+  }
+
+  .case-decision-arrow .icon {
+    transform: rotate(90deg);
+  }
+
+  .case-scenarios {
+    grid-template-columns: 1fr;
+  }
+
+  .case-scenarios .scenario-road {
+    order: 2;
+  }
+
+  .case-scenarios .scenario-family {
+    order: 3;
+  }
+
+  .case-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-metrics .metric-played {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+
+  .case-metrics .metric-time {
+    order: 2;
+  }
+
+  .case-metrics .metric-code {
+    order: 3;
+  }
+
+  .case-metrics .metric-new {
+    order: 4;
+  }
+
+  .case-metrics .metric-nps {
+    order: 5;
+  }
+
+  .case-metrics .metric-tnps {
+    grid-column: 1 / -1;
+    order: 6;
+  }
+
+  .case-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-results .result-reach {
+    order: 1;
+  }
+
+  .case-results .result-viral {
+    order: 2;
+  }
+
+  .case-results .result-tnps {
+    order: 3;
+    grid-column: 1 / -1;
+  }
+
+  .case-results .result-surveys {
+    order: 4;
+    grid-column: 1 / -1;
+  }
+
+  .case-results .result-business {
+    order: 5;
+    grid-column: 1 / -1;
+  }
+
+  .ogorod {
+    width: 100px;
+    height: 112px;
+  }
+
+  .case-pairs {
+    grid-template-columns: 1fr;
+  }
+
+  .case-preview-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .case-preview-frame {
+    position: relative;
+    aspect-ratio: 518 / 585.48;
+  }
+
+  .croped-phone {
+    position: absolute;
+    inset: 8px;
+    margin: auto;
+
+    width: auto;
+    max-width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    max-height: calc(100% - 16px);
+
+    object-fit: contain;
+  }
+
+  /* Обычные кнопки с одной иконкой */
+  .button.case-button {
+    flex: none;
+
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    padding: 4px;
+
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  /* Иконки в кнопках кейса */
+  .button.case-button svg,
+  .button.case-button .contact-icon,
+  .button .case-button-icon {
+    display: block;
+    flex: none;
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Telegram с текстом — не ограничиваем шириной 32px */
+  .button.telegram {
+    width: auto;
+    padding-inline: 12px 8px;
+    gap: 2px;
+  }
+}

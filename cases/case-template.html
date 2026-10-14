@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Шаблон кейса — Мария Кежун</title>
+    <link
+      rel="stylesheet"
+      href="/css/main.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/case.css"
+    />
+  </head>
+
+  <body class="case-page">
+    <!-- Статичный фон-заготовка. Можно заменить на своё видео, не подключая скрипт главной. -->
+    <div
+      class="case-background"
+      aria-hidden="true"
+    >
+      <video
+        class="background-mandarin"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source
+          src="/images/для анимации 22.mp4"
+          type='video/mp4; codecs="hvc1"'
+        />
+        <source
+          src="/images/для анимации 22.webm"
+          type="video/webm"
+        />
+      </video>
+    </div>
+
+    <!-- Шапка -->
+    <header class="case-header">
+      <div class="case-header-inner">
+        <div class="case-author">
+          <a
+            class="button case-button"
+            href="../index.html"
+            aria-label="Все проекты"
+          >
+            <img
+              class="button-icon"
+              src="/images/cases/Arrow_left.svg"
+              width="24"
+              height="24"
+              alt=""
+            />
+          </a>
+          <img
+            class="case-avatar"
+            src="/images/cases/avatar.jpg"
+            alt=""
+            loading="lazy"
+          />
+          <div class="case-author-name">Мария<br />Кежун</div>
+        </div>
+        <div class="case-actions">
+          <a
+            class="button case-button telegram"
+            href="https://t.me/mashenkatel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TELEGRAM
+            <img
+              class="button-icon case-button-icon"
+              src="/images/Telegram.svg"
+              width="24"
+              height="24"
+              alt=""
+            />
+          </a>
+          <a
+            class="button case-button"
+            href="mailto:maria.kezhun@yandex.ru"
+          >
+            <img
+              class="button-icon"
+              src="/images/E-mail.svg"
+              width="24"
+              height="24"
+              alt=""
+            />
+          </a>
+          <a
+            class="button case-button"
+            href="files/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="button-icon"
+              src="/images/CV.svg"
+              width="24"
+              height="24"
+              alt=""
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="case-main">
+      <!-- Интро -->
+      <div class="case-intro">
+        <div class="case-panel">
+          <h1>Заголовок</h1>
+        </div>
+        <div class="case-meta">
+          <div class="case-meta-row">
+            <div class="case-meta-item">
+              <div class="case-caption">Продукт</div>
+              <p
+                >МТС Premium — экосистемная подписка с доступом к видео, музыке, книгам, кешбэку и
+                партнёрским скидкам</p
+              >
+            </div>
+            <div class="case-meta-item">
+              <div class="case-caption">Роль</div>
+              <p>Product Designer</p>
+            </div>
+          </div>
+          <div class="case-meta-row case-meta-row--second">
+            <div class="case-meta-item">
+              <div class="case-caption">Контекст</div>
+              <p
+                >За два месяца поднять tNPS и закрыть годовой KPI через два параллельных
+                эксперимента в новогодний период</p
+              >
+            </div>
+            <div class="case-meta-item">
+              <div class="case-caption">Результат</div>
+              <div>
+                <div class="case-result-label">tNPS за декабрь</div>
+                <div class="case-result-value">+25 п.п.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Контент -->
+      <div class="case-content">
+        <!-- КОПИРОВАТЬ: самостоятельная текстовая секция -->
+        <section class="case-panel">
+          <h2>Заголовок</h2>
+          <div class="case-stack">
+            <p>Тут текст рыба</p>
+            <p>Тут текст рыба</p>
+            <p>Тут текст рыба</p>
+          </div>
+        </section>
+        <!-- КОПИРОВАТЬ: большая секция. Внутри — каталог разных блоков, а не связный кейс. -->
+        <section class="case-panel">
+          <h2>Заголовок</h2>
+          <div class="case-blocks">
+            <!-- Подзаголовок и абзацы -->
+            <div class="case-stack">
+              <h3>Заголовок рыба</h3>
+              <p>Тут текст рыба</p>
+              <p>Тут текст рыба</p>
+            </div>
+            <!-- Факт → решение -->
+            <div class="case-padding">
+              <div class="case-decision">
+                <div class="case-decision-card case-decision-card--light">
+                  <h3>Факт</h3>
+                  <p
+                    >Конверсия в открытие сценариев в прямом пути и в пути через модалку была
+                    сопоставимой
+                  </p>
+                </div>
+                <div class="case-decision-card case-decision-card--dark">
+                  <div
+                    class="case-decision-arrow"
+                    aria-hidden="true"
+                  >
+                    <img
+                      class="icon"
+                      src="/images/cases/Arrow_right.svg"
+                      width="24"
+                      height="24"
+                      alt=""
+                    />
+                  </div>
+                  <h3>Решение</h3>
+                  <p>Оставили прямой вход без обязательного выбора</p>
+                </div>
+              </div>
+            </div>
+            <!-- Гипотеза / цитата -->
+            <blockquote class="case-quote"
+              >Если объединить сервисы МТС Premium в готовые сценарии под жизненные ситуации,
+              пользователи будут чаще открывать предложения подписки, потому что увидят конкретный
+              план вместо набора возможностей, которые нужно самостоятельно
+              сопоставлять.</blockquote
+            >
+            <!-- Сценарии: 2 × 2 на широком экране, колонка на мобильном -->
+            <div class="case-grid case-grid--two case-scenarios">
+              <div class="case-tile scenario-choice">
+                <div class="case-tile-title">Устал от выбора</div>
+                <div>
+                  <div class="case-tile-text">Дайте готовый план</div>
+                </div>
+              </div>
+              <div class="case-tile scenario-family">
+                <div class="case-tile-title">С близкими</div>
+                <div>
+                  <div class="case-tile-text">Хочу найти занятие, которое понравится всем</div>
+                </div>
+              </div>
+              <div class="case-tile scenario-road">
+                <div class="case-tile-title">В дороге</div>
+                <div>
+                  <div class="case-tile-text">Хочу интересно провести время в пути</div>
+                </div>
+              </div>
+              <div class="case-tile scenario-city">
+                <div class="case-tile-title">В новом городе</div>
+                <div>
+                  <div class="case-tile-text">Покажите лучшее, что есть рядом</div>
+                </div>
+              </div>
+            </div>
+            <!-- Таблица: этапы пользовательского пути -->
+            <div
+              class="case-table-scroll"
+              tabindex="0"
+              role="region"
+              aria-label="Вопрос пользователя — таблица с горизонтальной прокруткой"
+            >
+              <div class="case-table-frame">
+                <table class="case-table case-table--journey">
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">Этап</th>
+                      <th scope="col">Вопрос пользователя</th>
+                      <th scope="col">Что проверяла</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Узнавание</td>
+                      <td>Это подходит мне сейчас?</td>
+                      <td>Контекст, настроение, формат, длительность, дома или офлайн</td>
+                    </tr>
+                    <tr>
+                      <td>Понимание</td>
+                      <td>Что я получу?</td>
+                      <td>Название, состав сценария, связь между шагами</td>
+                    </tr>
+                    <tr>
+                      <td>Выбор</td>
+                      <td>Почему этот вариант, а не соседний?</td>
+                      <td>Сканируемость и признаки для сравнения</td>
+                    </tr>
+                    <tr>
+                      <td>Действие</td>
+                      <td>Что произойдёт после нажатия?</td>
+                      <td>Иерархия CTA и ясность следующего шага</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Таблица: эксперименты -->
+            <div
+              class="case-table-scroll"
+              tabindex="0"
+              role="region"
+              aria-label="Что сравнивали — таблица с горизонтальной прокруткой"
+            >
+              <div class="case-table-frame">
+                <table class="case-table case-table--experiments">
+                  <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">Этап</th>
+                      <th scope="col">Что сравнивали</th>
+                      <th scope="col">Основная метрика</th>
+                      <th scope="col">Методология</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Путь к сценариям</td>
+                      <td>Прямой вход vs обязательный выбор настроения и формата</td>
+                      <td>Конверсия из точки входа в открытие сценария</td>
+                      <td>А/В-тест</td>
+                    </tr>
+                    <tr>
+                      <td>Точки входа</td>
+                      <td
+                        >Баннер, «Новое в подписке», «Что входит в подписку», «Доступно по подписке»
+                      </td>
+                      <td>CTR точки входа</td>
+                      <td>Сравнение плейсментов на витрине</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Метрики: мобильный порядок задан классами metric-* -->
+            <div class="case-grid case-grid--three case-metrics">
+              <div class="case-tile case-tile--green metric-played">
+                <div class="case-tile-title">Играли</div>
+                <div>
+                  <div class="case-tile-value">20%</div>
+                  <div class="case-tile-note">пользователей</div>
+                </div>
+              </div>
+              <div class="case-tile case-tile--orange metric-code">
+                <div class="case-tile-title">Забрали промокод</div>
+                <div>
+                  <div class="case-tile-value">70%</div>
+                  <div class="case-tile-note">выигравших</div>
+                </div>
+              </div>
+              <div class="case-tile metric-time">
+                <div class="case-tile-title">Время на сайте</div>
+                <div>
+                  <div class="case-tile-value">×6</div>
+                  <div class="case-tile-note">у игроков</div>
+                </div>
+              </div>
+              <div class="case-tile case-tile--orange metric-new">
+                <div class="case-tile-title">Новых подписчиков</div>
+                <div>
+                  <div class="case-tile-value">1 000+</div>
+                </div>
+              </div>
+              <div class="case-tile metric-nps">
+                <div class="case-tile-title">NPS</div>
+                <div>
+                  <div class="case-tile-value">×2+</div>
+                  <div class="case-tile-note">у игроков</div>
+                </div>
+              </div>
+              <div class="case-tile case-tile--green metric-tnps">
+                <div class="case-tile-title">Общий tNPS</div>
+                <div>
+                  <div class="case-tile-value">×1,25</div>
+                </div>
+              </div>
+            </div>
+            <!-- Горизонтальная галерея: добавить/удалить img -->
+            <div
+              class="case-image-strip"
+              tabindex="0"
+              role="region"
+              aria-label="Галерея игрового декора"
+              ><img
+                class=""
+                src="/images/cases/vegetable-1.jpg"
+                alt="Игровой декор"
+                loading="lazy"
+              />
+              <img
+                class=""
+                src="/images/cases/vegetable-2.jpg"
+                alt="Игровой декор"
+                loading="lazy"
+              />
+              <img
+                class=""
+                src="/images/cases/vegetable-3.jpg"
+                alt="Игровой декор"
+                loading="lazy"
+              />
+              <img
+                class=""
+                src="/images/cases/vegetable-4.jpg"
+                alt="Игровой декор"
+                loading="lazy"
+              />
+              <img
+                class=""
+                src="/images/cases/vegetable-4.jpg"
+                alt="Игровой декор"
+                loading="lazy"
+              />
+            </div>
+            <!-- Одна широкая иллюстрация -->
+            <figure
+              ><img
+                class="case-image"
+                src="/images/cases/flow.jpg"
+                alt="Три экрана сценария МТС Premium"
+                loading="lazy"
+            /></figure>
+            <!-- Метрики / ответы 2 × 2 -->
+            <div class="case-grid case-grid--two">
+              <div class="case-tile case-tile--dark">
+                <div class="case-tile-title">Выбрали теги</div>
+                <div>
+                  <div class="case-tile-value">78,6%</div>
+                  <div class="case-tile-note">пользователей</div>
+                </div>
+              </div>
+              <div class="case-tile">
+                <div class="case-tile-title">Популярное место</div>
+                <div>
+                  <div class="case-tile-text">Дома</div>
+                </div>
+              </div>
+              <div class="case-tile">
+                <div class="case-tile-title">Популярный контент</div>
+                <div>
+                  <div class="case-tile-text">Аудио и видео</div>
+                </div>
+              </div>
+              <div class="case-tile case-tile--dark">
+                <div class="case-tile-title">Выбрали одну категорию</div>
+                <div>
+                  <div class="case-tile-value">14%</div>
+                  <div class="case-tile-note">пользователей</div>
+                </div>
+              </div>
+            </div>
+            <!-- Асимметричная сетка результатов -->
+            <div class="case-grid case-results">
+              <div class="case-tile case-tile--dark result-reach">
+                <div class="case-tile-title">Охват акции</div>
+                <div>
+                  <div class="case-tile-value">2 млн+</div>
+                  <div class="case-tile-note">пользователей</div>
+                </div>
+              </div>
+              <div class="case-tile case-tile--tangerine result-tnps">
+                <div class="case-tile-title">tNPS</div>
+                <div>
+                  <div class="case-tile-value">+25 п.п.</div>
+                  <div class="case-tile-note">за декабрь</div>
+                </div>
+              </div>
+              <div class="case-tile result-viral">
+                <div class="case-tile-title">Виральный эффект</div>
+                <div>
+                  <div class="case-tile-text">Органические посты в соцсетях</div>
+                </div>
+              </div>
+              <div class="case-tile case-tile--dark result-surveys">
+                <div class="case-tile-title">Завершённые опросы</div>
+                <div>
+                  <div class="case-tile-value">45 тыс+</div>
+                  <div class="case-tile-note">ответов</div>
+                </div>
+              </div>
+              <div class="case-tile result-business">
+                <div class="case-tile-title">Бизнес</div>
+                <div>
+                  <div class="case-tile-text">Годовой KPI по tNPS закрыт</div>
+                </div>
+              </div>
+            </div>
+            <!-- Коллаж публикаций: на мобильном одна колонка -->
+            <div class="case-press">
+              <div class="case-press-column"
+                ><img
+                  src="/images/cases/mandarin/viral-1.png"
+                  alt="Публикация об акции"
+                  loading="lazy"
+                />
+                <img
+                  src="/images/cases/mandarin/viral-2.png"
+                  alt="Обсуждение акции"
+                  loading="lazy"
+                />
+              </div>
+              <img
+                src="/images/cases/mandarin/viral-3.png"
+                alt="Публикация с новогодним подарком"
+                loading="lazy"
+              />
+            </div>
+            <!-- Три экрана: на мобильном друг под другом -->
+            <div class="case-preview-grid">
+              <div class="case-preview-frame">
+                <img
+                  src="/images/cases/phone-1.jpg"
+                  alt="..."
+                />
+              </div>
+              <div class="case-preview-frame">
+                <img
+                  src="/images/cases/phone-1.jpg"
+                  alt="..."
+                />
+              </div>
+              <div class="case-preview-frame">
+                <img
+                  src="/images/cases/phone-1.jpg"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <!-- Нумерованный список: номера создаются автоматически -->
+            <ol class="case-steps">
+              <li
+                >Далеко-далеко за словесными горами в стране гласных и согласных живут рыбтексты.
+                Вдали от всех живут они в буквенных домах на берегу Семантика</li
+              >
+              <li
+                >Далеко-далеко за словесными горами в стране гласных и согласных живут рыбтексты.
+                Вдали от
+              </li>
+              <li
+                >Далеко-далеко за словесными горами в стране гласных и согласных живут рыбтексты.
+                Вдали от всех живут они в буквенных домах на берегу Семантика</li
+              >
+              <li
+                >Далеко-далеко за словесными горами в стране гласных и согласных живут рыбтексты.
+                Вдали от
+              </li>
+            </ol>
+            <!-- Два экрана в ряд: на мобильном один под другим -->
+            <div class="case-pairs"
+              ><img
+                class=""
+                src="/images/cases/gift.jpg"
+                alt="Экран с подарком"
+                loading="lazy"
+              /><img
+                class=""
+                src="/images/cases/gift.jpg"
+                alt="Экран с подарком"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="/scripts/case.js"></script>
+  </body>
+</html>

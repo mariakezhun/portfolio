@@ -1,0 +1,77 @@
+/* Общая кнопка: подходит для <a> и <button> */
+
+.button {
+  --button-background: #fff;
+  --button-color: #1d1d1f;
+  --hover-overlay: rgb(188 195 208 / 25%);
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  min-width: 44px;
+  height: 44px;
+  padding: 10px;
+
+  border: 0;
+  border-radius: 100px;
+
+  background: var(--button-background);
+  color: var(--button-color);
+
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Чёрный вариант */
+
+.button.telegram {
+  --button-background: #1d1d1f;
+  --button-color: #fff;
+  --hover-overlay: rgb(242 243 247 / 12%);
+}
+
+/* Иконки */
+
+.button svg,
+.button .contact-icon {
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+/* Слой ховера.
+   Позиционирование .arrow остаётся в CSS главной. */
+
+.button::after,
+.arrow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--hover-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.arrow {
+  --hover-overlay: rgb(242 243 247 / 12%);
+}
+
+@media (hover: hover) {
+  .button:hover::after,
+  .arrow:hover::after {
+    opacity: 1;
+  }
+}
