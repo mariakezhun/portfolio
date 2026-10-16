@@ -5,6 +5,9 @@
 * {
   box-sizing: border-box;
 }
+/* .case-document {
+  overflow-x: clip;
+} */
 
 body.case-page {
   margin: 0;
@@ -12,6 +15,8 @@ body.case-page {
   background: #f5f5f7;
   font-family: Geist, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+
+  /* overflow-x: clip; */
 }
 
 .case-page :where(h1, h2, h3, p, figure, blockquote) {
@@ -36,11 +41,13 @@ body.case-page {
 .case-page p,
 .case-page li,
 .case-page td,
-.case-page th {
+.case-page th,
+.case-text-regular {
   font-size: 14px;
   line-height: 20px;
   /* line-height: 18px; */
   letter-spacing: -0.5px;
+  font-weight: 400;
 }
 
 .case-page p,
@@ -48,10 +55,10 @@ body.case-page {
   overflow-wrap: anywhere;
 }
 
-.case-page img {
+/* .case-page img {
   display: block;
   max-width: 100%;
-}
+} */
 
 /* .case-page a {
   color: inherit;
@@ -60,6 +67,9 @@ body.case-page {
 .case-padding-full {
   min-width: 0;
   padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .case-padding-top {
@@ -126,6 +136,14 @@ body.case-page {
 
 /* Основная структура */
 
+.case-dosug-viewport {
+  overflow: hidden;
+
+  /* Оставляем место для выступа картинки вверх */
+  padding-top: 20px;
+  margin-top: -20px;
+}
+
 .case-main {
   position: relative;
   z-index: 1;
@@ -135,6 +153,10 @@ body.case-page {
   width: calc(100% - 32px);
   max-width: 700px;
   margin: 12px auto 32px;
+}
+
+.case-main--dosug {
+  gap: 12px;
 }
 
 .case-intro,
@@ -252,6 +274,40 @@ body.case-page {
   object-position: center bottom;
 }
 
+.background-ogorod {
+  background-color: #68a214;
+  border-radius: 0 0 24px 24px;
+  overflow: visible;
+  /* max-width: 1000px; */
+}
+
+.decor-item {
+  position: absolute;
+  display: block;
+
+  height: auto;
+  max-width: none;
+}
+
+.decor-item--1 {
+  width: 40px;
+  right: 5px;
+  bottom: -15px;
+}
+
+.decor-item--2 {
+  width: 30px;
+  left: 5px;
+  bottom: -15px;
+}
+
+.background-dosug {
+  position: absolute;
+  width: 135px;
+  top: -20px;
+  right: -25px;
+}
+
 /* .case-background::after {
   content: "";
   position: absolute;
@@ -272,7 +328,7 @@ body.case-page {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.case-decision-3{
+.case-decision-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -305,10 +361,20 @@ body.case-page {
   border-radius: 24px;
 }
 
-.case-decision-card--ogorod-1{}
+.case-decision-card--ogorod-1 {
+  background-color: #e1ecd0;
+}
 
-.case-decision-card--ogorod-1{
-  
+.case-decision-card--ogorod-2 {
+  background-color: #d2e3b8;
+  color: #1d1d1f;
+  border-radius: 24px 0 0 24px;
+  margin-right: calc(var(--decision-overlap) / -2);
+}
+
+.case-decision-card--ogorod-3 {
+  background-color: #a4c772;
+  color: #1d1d1f;
 }
 
 .case-decision-arrow {
@@ -362,7 +428,7 @@ body.case-page {
   justify-content: space-between;
   gap: 24px;
   min-width: 0;
-  min-height: 136px;
+  min-height: 135px;
   padding: 16px;
   border-radius: 24px;
   background: #f5f5f7;
@@ -414,6 +480,10 @@ body.case-page {
   line-height: 16px;
   letter-spacing: -0.5px;
   font-weight: 600;
+}
+
+.case-tile-note--light {
+  color: #727272;
 }
 
 /* Порядок сценариев */
@@ -483,7 +553,7 @@ body.case-page {
 /* Таблица движется вместе с рамкой и скруглениями */
 .case-table-frame {
   width: 100%;
-  min-width: 450px;
+  min-width: 500px;
   border: 1px solid #1d1d1f;
   border-radius: 24px;
   overflow: hidden;
@@ -526,7 +596,8 @@ body.case-page {
 /* Пропорции колонок таблицы экспериментов */
 
 .case-table--experiments col:nth-child(1) {
-  width: 17%;
+  width: 20%;
+  min-width: 93px;
 }
 
 .case-table--experiments col:nth-child(2) {
@@ -539,6 +610,7 @@ body.case-page {
 
 .case-table--experiments col:nth-child(4) {
   width: 23%;
+  min-width: 110px;
 }
 
 /* Пропорции колонок таблицы пути пользователя */
@@ -572,6 +644,19 @@ body.case-page {
   -webkit-user-drag: none;
 }
 
+.strip-container {
+  position: relative;
+
+  width: 150px;
+  height: 150px;
+
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--strip-layer, 0);
+}
+
 .ded {
   width: auto;
   height: var(--ded-height, 354px);
@@ -579,8 +664,9 @@ body.case-page {
 }
 
 .ogorod {
-  width: 152px;
-  height: 160px;
+  width: 236.63px;
+  height: 177.48px;
+  max-width: none;
 }
 
 /* Изображения и публикации */
@@ -795,14 +881,25 @@ body.case-page {
     padding-right: 16px;
     padding-bottom: 44px;
     border-radius: 24px 24px 0 0;
+    gap: 12px;
   }
 
   .case-decision-card--dark {
     padding-left: 16px;
-    min-height: 100px;
+    /* color: #fff; */
+    /* min-height: 100px; */
     gap: 12px;
     margin-left: 0;
     margin-top: calc(var(--decision-overlap) / -2);
+  }
+
+  .case-decision-card--ogorod-2 {
+    margin-bottom: calc(var(--decision-overlap) / -2);
+    margin-right: 0;
+    border-radius: 24px 24px 0 0;
+    padding-right: 16px;
+    padding-bottom: 44px;
+    min-height: none;
   }
 
   .case-decision-arrow {
@@ -886,10 +983,13 @@ body.case-page {
     order: 5;
     grid-column: 1 / -1;
   }
-
-  .ogorod {
+  .strip-container {
+    height: 100px;
     width: 100px;
-    height: 112px;
+  }
+  .ogorod {
+    width: 157.76px;
+    height: 118.32px;
   }
 
   .case-pairs {

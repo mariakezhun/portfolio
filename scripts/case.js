@@ -130,7 +130,12 @@ if (caseIntro && caseBackground) {
     const headerHeight =
       document.querySelector(".case-header")?.getBoundingClientRect().height ?? 0;
 
-    caseBackground.style.height = `${headerHeight + introHeight + 50}px`;
+    const offset = Number(
+      caseBackground.dataset.backgroundOffset ?? 50
+    );
+
+    caseBackground.style.height =
+      `${headerHeight + introHeight + offset}px`;
   };
 
   updateBackgroundHeight();

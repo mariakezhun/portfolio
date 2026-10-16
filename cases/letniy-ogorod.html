@@ -8,6 +8,18 @@
     />
     <title>Игра «Летний огород»</title>
     <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../images/favicon/favicon.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../images/favicon/apple-touch-icon.png"
+    />
+    <link
       rel="stylesheet"
       href="../css/main.css"
     />
@@ -19,27 +31,22 @@
 
   <body class="case-page">
     <!-- Статичный фон-заготовка. Можно заменить на своё видео, не подключая скрипт главной. -->
-    <!-- <div
-      class="case-background"
+    <div
+      class="case-background background-ogorod"
+      data-background-offset="30"
       aria-hidden="true"
     >
-      <video
-        class="background-mandarin"
-        autoplay
-        muted
-        loop
-        playsinline
-      >
-        <source
-          src="../images/для анимации 22.mp4"
-          type='video/mp4; codecs="hvc1"'
-        />
-        <source
-          src="../images/для анимации 22.webm"
-          type="video/webm"
-        />
-      </video>
-    </div> -->
+      <img
+        class="decor-item decor-item--1"
+        src="../images/cases/ogorod/decor.png"
+        alt=""
+      />
+      <img
+        class="decor-item decor-item--2"
+        src="../images/cases/ogorod/decor-1.png"
+        alt=""
+      />
+    </div>
 
     <!-- Шапка -->
     <header class="case-header">
@@ -116,7 +123,7 @@
       <!-- Интро -->
       <div class="case-intro">
         <div class="case-panel">
-          <h1>Восстановление tNPS через новогодние growth-эксперименты</h1>
+          <h1>Летний огород: первая игра в подписке</h1>
         </div>
         <div class="case-meta">
           <div class="case-meta-row">
@@ -176,55 +183,379 @@
             </p>
             <p>
               Жёсткий количественный порог до запуска не фиксировался, критерием успеха было
-              сравнение с результатами предыдущих облегчённых механик по той же воронке (охват →
-              вовлечение → забор промокода) и по tNPS.
+              сравнение с результатами предыдущих облегчённых механик по той же воронке.
             </p>
-            <div class="case-padding">
+            <div class="case-padding-full">
               <div class="case-decision case-decision-3">
-                <div class="case-decision-card case-decision-card--light case-decision-card--ogorod-1">
-                  <h3>Факт</h3>
+                <div
+                  class="case-decision-card case-decision-card--light case-decision-card--ogorod-1"
+                >
+                  <h3>Охват</h3>
                 </div>
-                <div class="case-decision-card case-decision-card--dark ">
+                <div
+                  class="case-decision-card case-decision-card--dark case-decision-card--ogorod-2"
+                >
                   <div
                     class="case-decision-arrow"
                     aria-hidden="true"
                   >
                     <img
                       class="icon"
-                      src="/images/cases/Arrow_right.svg"
+                      src="../images/cases/Arrow_right.svg"
                       width="24"
                       height="24"
                       alt=""
                     />
                   </div>
-                  <h3>Решение</h3>
+                  <h3>Вовлечение</h3>
                 </div>
-                <div class="case-decision-card case-decision-card--dark case-decision-card--ogorod-2">
+                <div
+                  class="case-decision-card case-decision-card--dark case-decision-card--ogorod-3"
+                >
                   <div
                     class="case-decision-arrow"
                     aria-hidden="true"
                   >
                     <img
                       class="icon"
-                      src="/images/cases/Arrow_right.svg"
+                      src="../images/cases/Arrow_right.svg"
                       width="24"
                       height="24"
                       alt=""
                     />
                   </div>
-                  <h3>Решение</h3>
+                  <h3>Забор промокода</h3>
                 </div>
               </div>
             </div>
             <p>
-              Ключевая развилка, определившая архитектуру решения, эмоцию и бизнес-метрику нельзя
-              было решить одним элементом интерфейса. Сама механика игры отвечала за эмоцию
-              (вовлечение, удовольствие, добровольное возвращение), а призовой слот внутри неё —
-              за бизнес-цель (показ и забор партнёрской ценности). Это стало стержнем решения —
-              не украсить существующий баннер с промокодами игровым слоем, а построить игру так,
-              чтобы промокод был наградой внутри уже цельного и самостоятельно работающего
-              эмоционального цикла.
+              Механика игры отвечала за вовлечение и удовольствие, а выбор приза помогал
+              познакомиться с партнёрскими предложениями и забрать промокод.
             </p>
+            <p>
+              Так промокод стал наградой внутри игрового процесса, а не отдельным предложением
+              на витрине.
+            </p>
+          </div>
+        </section>
+
+        <section class="case-panel">
+          <h2>Решение</h2>
+          <div class="case-stack">
+            <p>
+              Я искала простой формат игры без проигрыша, чтобы путь к призу не вызывал фрустрации.
+              Выбрала «Найди пару» потому, что пользователь может прервать игру, но не проиграть.
+            </p>
+            <div class="case-padding-full">
+              <figure class="case-media">
+                <video
+                  class="case-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                >
+                  <source
+                    src="../images/cases/ogorod/ogorod-full.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </figure>
+            </div>
+            <p>
+              Это первая игра на нашей витрине. Нужно было понять, как наша аудитория вообще
+              относится к играм. Если сделать игру сложной, то результат смешается с вопросом
+              «справился или нет». Простой порог входа даёт чистый сигнал о том, интересен ли формат
+              сам по себе.
+            </p>
+            <h3>Флоу</h3>
+            <p>
+              Пользователь заходит на витрину и видит блок «Найди пару. Летний огород» с кратким
+              условием игры — поле 4×4 с закрытыми карточками, которые нужно перевернуть и найти
+              пары.
+            </p>
+            <p>
+              При победе появляется окно успеха с выбором одного из восьми партнёрских промокодов.
+              Взять можно один промокод за победу. За каждую победу можно выбрать один промокод.
+              После этого пользователь может продолжать играть без призов. Отдельная иконка на поле
+              игры открывает экран собранных призов.
+            </p>
+            <div class="case-padding-full">
+              <figure class="case-media">
+                <img
+                  class="case-img"
+                  src="../images/cases/ogorod/flow.png"
+                  alt=""
+                />
+              </figure>
+            </div>
+            <h3>Состояния</h3>
+            <p>
+              Тексты и призы на экране меняются в зависимости от числа полученных призов.
+              Если призов нет, экран призывает сыграть в игру. Если призы уже есть, экран хранит
+              их и предлагает продолжать. Когда выиграны все призы, экран подтверждает
+              это и приглашает играть дальше ради удовольствия.
+            </p>
+            <div class="case-padding-full">
+              <figure class="case-media">
+                <img
+                  class="case-img"
+                  src="../images/cases/ogorod/priz.png"
+                  alt=""
+                />
+              </figure>
+            </div>
+            <p>
+              Содержание окна успеха зависит от того, какой по счёту приз получает пользователь.
+              После первой победы окно знакомит с механикой выбора одного из промокодов. Дальше
+              оно предлагает выбрать очередной приз. Когда призы закончились, окно сообщает,
+              что выиграно всё, и зовёт играть дальше без наград.
+            </p>
+            <div class="case-padding-full">
+              <figure class="case-media">
+                <img
+                  class="case-img"
+                  src="../images/cases/ogorod/vybor-priza.png"
+                  alt=""
+                />
+              </figure>
+            </div>
+            <h3>Визуал</h3>
+            <p>
+              Сложный 3D-стиль карточек вручную не укладывался в установленный срок (1 неделя).
+              Все карточки и вариации изображений я сгенерировала с помощью нейросети за два дня.
+              Так механика вышла в срок без компромисса по качеству картинки.
+            </p>
+            <div class="case-padding-top">
+              <div
+                class="case-image-strip"
+                tabindex="0"
+                role="region"
+                aria-label="Галерея игрового декора"
+              >
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset-1.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset-2.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset-3.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset-4.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset-5.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset-6.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strip-container">
+                  <img
+                    class="strip-img ogorod"
+                    src="../images/cases/ogorod/asset-7.png"
+                    alt="Игровой декор"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-panel">
+          <h2>Как проверяли</h2>
+          <div class="case-stack">
+            <h3>Сравнение шло по двум методам одновременно</h3>
+            <ol class="case-steps">
+              <li>
+                Воронка полностью прослеживалась трекингом внутри самой игры: охват (увидевшие
+                блок), глубина вовлечения (дошедшие до приза), конверсия в забор промокода, time
+                spent, возвращаемость на витрину, доля времени на сайте за 14 дней после игры,
+                разбивка результата по партнёрам. Сравнивали с предыдущими геймифицированными
+                механиками с промокодами (без полноценной игры).
+              </li>
+              <li>
+                tNPS сравнивался между когортами в один и тот же период, участники игры против
+                неучастников.
+              </li>
+            </ol>
+            <p>
+              Метрика подключения новых подписчиков изначально не входила в критерии успеха
+              эксперимента, трекинг на неё не был заложен как целевой, поэтому её нужно читать
+              как найденный сигнал, а не подтверждённую цель.
+            </p>
+          </div>
+        </section>
+
+        <section class="case-panel">
+          <h2>Результаты</h2>
+          <div class="case-stack">
+            <div class="case-padding-full">
+              <div class="case-grid case-grid--three case-metrics">
+                <div class="case-tile case-tile--green metric-played">
+                  <div class="case-tile-title">Играли</div>
+                  <div>
+                    <div class="case-tile-value">20%</div>
+                    <div class="case-tile-note">пользователей</div>
+                  </div>
+                </div>
+                <div class="case-tile case-tile--orange metric-code">
+                  <div class="case-tile-title">Забрали промокод</div>
+                  <div>
+                    <div class="case-tile-value">70%</div>
+                    <div class="case-tile-note">выигравших</div>
+                  </div>
+                </div>
+                <div class="case-tile metric-time">
+                  <div class="case-tile-title">Время на сайте</div>
+                  <div>
+                    <div class="case-tile-value">×6</div>
+                    <div class="case-tile-note">у игроков</div>
+                  </div>
+                </div>
+                <div class="case-tile case-tile--orange metric-new">
+                  <div class="case-tile-title">Новых подписчиков</div>
+                  <div>
+                    <div class="case-tile-value">1 000+</div>
+                  </div>
+                </div>
+                <div class="case-tile metric-nps">
+                  <div class="case-tile-title">NPS</div>
+                  <div>
+                    <div class="case-tile-value">×2+</div>
+                    <div class="case-tile-note">у игроков</div>
+                  </div>
+                </div>
+                <div class="case-tile case-tile--green metric-tnps">
+                  <div class="case-tile-title">Общий tNPS</div>
+                  <div>
+                    <div class="case-tile-value">×1,25</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p> По заборам промокодов это самая успешная наша механика на момент оценки. </p>
+            <p>
+              Дополнительно мы провели серию исследований по промокодам партнёров: смотрели,
+              кто что берёт (мужчины и женщины, регионы), какие офферы работают лучше или хуже
+              в разных сегментах, включая критиков, нейтралов и промоутеров по ответам
+              в tNPS-опросе. Результаты используются для планирования будущих партнёрских механик.
+            </p>
+          </div>
+        </section>
+
+        <section class="case-panel">
+          <h2>Команда и мой вклад</h2>
+          <div class="case-stack">
+            <h3>С командой</h3>
+            <p>
+              Гипотезу и проблемы формулировали совместно с Discovery-командой. Маркетолог подбирала
+              партнёров для призового пула. Аналитики выстраивали трекинг и собирали метрики
+              по воронке, tNPS и сегментному исследованию.
+            </p>
+            <h3>Мой вклад</h3>
+            <ol class="case-steps">
+              <li>
+                Предложила жанр «Найди пару» и уровень сложности: в игре нельзя проиграть, порог
+                входа низкий.
+              </li>
+              <li> Спроектировала механику и весь флоу игры. </li>
+              <li>
+                Встроила призовой слот в игровой цикл: окно успеха на месте поля, без модалки.
+              </li>
+              <li> Продумала все состояния экрана и edge cases. </li>
+              <li> Сгенерировала все визуальные ассеты с помощью нейросети за два дня. </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="case-panel">
+          <h2>Выводы</h2>
+          <div class="case-stack">
+            <ol class="case-steps">
+              <li>
+                Сравнение с прошлыми облегчёнными геймификациями подтвердило: полноценная игра,
+                а не игровой слой поверх статичного контента, даёт более сильный эффект и на эмоцию,
+                и на бизнес-метрику одновременно. С тех пор формат используется как основа
+                для регулярных механик, которые компания запускает несколько раз за сезон.
+              </li>
+              <li>
+                Незапланированный эффект на подключение подписки стал уроком в дизайне следующих
+                экспериментов: теперь конверсию в подписку закладывают в метрики успеха заранее,
+                а не фиксируют постфактум как случайную находку.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="case-panel">
+          <h2>Что было дальше</h2>
+          <div class="case-stack">
+            <p>
+              После запуска «Летнего огорода» я перешла в команду кэшбэка. Это отдельный продукт
+              внутри той же экосистемы.
+            </p>
+            <p>
+              Discovery-команда кэшбэка изучила результаты игры и решила адаптировать «Найди пару»
+              под другую задачу: знакомить пользователей с банковскими привилегиями через игру,
+              чтобы стимулировать оформление карт.
+            </p>
+            <p>
+              Механику адаптировали: поле 3×4 (12 карточек), на карточках приведены иллюстрации
+              привилегий банка (обмен кэшбэка на рубли, бесплатное обслуживание, скидка на оплату
+              связи), наградой стала одноразовая выплата 10 рублей кэшбэка вместо выбора промокода.
+              Окно успеха стало каталогом: те же картинки, но с подробным описанием, которые можно
+              листать, и кнопкой, ведущей на оформление карты.
+            </p>
+            <div class="case-padding-top">
+              <figure class="case-media">
+                <img
+                  class="case-img"
+                  src="../images/cases/ogorod/igra-kb.png"
+                  alt=""
+                />
+              </figure>
+            </div>
           </div>
         </section>
       </div>
