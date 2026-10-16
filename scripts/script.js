@@ -126,95 +126,75 @@ window.addEventListener("resize", updatePhoneGeometry);
 
 updatePhoneGeometry();
 
-// {
-//   // Только ролики с автозапуском.
-//   // Видео с ручным управлением не затрагиваем.
-//   const videos = [
-//     ...document.querySelectorAll("video[autoplay]"),
-//   ];
+document.querySelectorAll(".orange-scene").forEach((scene) => {
+  const video = scene.querySelector("video.background-mandarin");
 
-//   const startAnimationsButton =
-//     document.querySelector("#start-animations");
+  const modal = scene.querySelector(
+    "img.visual-phone--modal"
+  );
 
-//   const visibleVideos = new Set();
-//   const blockedVideos = new Set();
+  if (!video || !modal) return;
 
-//   const updateStartButton = () => {
-//     if (!startAnimationsButton) return;
+  const animation = modal.getAnimations().find(
+    (item) => item.animationName === "phone-modal-reveal"
+  );
 
-//     const hasBlockedVisibleVideo = [...visibleVideos].some(
-//       (video) => blockedVideos.has(video)
-//     );
+  if (!animation) return;
 
-//     startAnimationsButton.hidden = !hasBlockedVisibleVideo;
-//   };
+  const syncAnimation = (seconds) => {
+    animation.currentTime = seconds * 1000;
+  };
 
-//   const playVideo = (video) => {
-//     video.muted = true;
-//     video.defaultMuted = true;
+  syncAnimation(video.currentTime);
 
-//     return video.play()
-//       .then(() => {
-//         blockedVideos.delete(video);
-//         updateStartButton();
-//       })
-//       .catch((error) => {
-//         if (error.name === "NotAllowedError") {
-//           blockedVideos.add(video);
-//         } else if (error.name !== "AbortError") {
-//           console.warn(
-//             "Ошибка видео:",
-//             video.currentSrc,
-//             error.name,
-//             error.message
-//           );
-//         }
+  if (typeof video.requestVideoFrameCallback === "function") {
+    const onVideoFrame = (now, metadata) => {
+      syncAnimation(metadata.mediaTime);
+      video.requestVideoFrameCallback(onVideoFrame);
+    };
 
-//         updateStartButton();
-//       });
-//   };
+    video.requestVideoFrameCallback(onVideoFrame);
+  } else {
+    let frameId = null;
 
-//   videos.forEach((video) => {
-//     video.muted = true;
-//     video.defaultMuted = true;
-//     video.playsInline = true;
-//   });
+    const update = () => {
+      syncAnimation(video.currentTime);
 
-//   const observer = new IntersectionObserver((entries) => {
-//     entries.forEach((entry) => {
-//       const video = entry.target;
+      if (!video.paused && !video.ended) {
+        frameId = requestAnimationFrame(update);
+      } else {
+        frameId = null;
+      }
+    };
 
-//       if (entry.isIntersecting) {
-//         visibleVideos.add(video);
+    const startUpdates = () => {
+      if (frameId !== null) return;
+      update();
+    };
 
-//         if (!document.hidden) {
-//           playVideo(video);
-//         }
-//       } else {
-//         visibleVideos.delete(video);
-//         video.pause();
-//       }
-//     });
+    const stopUpdates = () => {
+      if (frameId !== null) {
+        cancelAnimationFrame(frameId);
+        frameId = null;
+      }
 
-//     updateStartButton();
-//   }, {
-//     threshold: 0,
-//   });
+      syncAnimation(video.currentTime);
+    };
 
-//   videos.forEach((video) => observer.observe(video));
+    video.addEventListener("playing", startUpdates);
+    video.addEventListener("pause", stopUpdates);
+    video.addEventListener("ended", stopUpdates);
 
-//   startAnimationsButton?.addEventListener("click", () => {
-//     // Вызовы play() выполняются непосредственно при нажатии.
-//     visibleVideos.forEach((video) => playVideo(video));
-//   });
+    video.addEventListener("timeupdate", () => {
+      syncAnimation(video.currentTime);
+    });
 
-//   document.addEventListener("visibilitychange", () => {
-//     visibleVideos.forEach((video) => {
-//       if (document.hidden) {
-//         video.pause();
-//       } else {
-//         playVideo(video);
-//       }
-//     });
-//   });
-// }
+    video.addEventListener("seeked", () => {
+      syncAnimation(video.currentTime);
+    });
+
+    if (!video.paused && !video.ended) {
+      startUpdates();
+    }
+  }
+});

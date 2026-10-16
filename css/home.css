@@ -255,19 +255,6 @@ p {
   z-index: 3;
 }
 
-.orange .phone-layer--top .visual-phone {
-  position: absolute;
-  inset: 0;
-
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-
-  object-fit: contain;
-}
-
 /* Обрезка нижней картинки по области экрана.
    Эти отступы пока предварительные. */
 .orange .phone-screen {
@@ -297,9 +284,48 @@ p {
   object-fit: contain;
 }
 
-/* Модалка поверх рамки */
-.orange .phone-layer--top .visual-phone {
+.orange .phone-layer--top .visual-phone--modal {
+  position: absolute;
   z-index: 1;
+
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+
+  display: block;
+  width: 80.3%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+
+  opacity: 0;
+  animation: phone-modal-reveal 8s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes phone-modal-reveal {
+  0% {
+    opacity: 0;
+    translate: 0 8.856px;
+  }
+
+  14.375% {
+    opacity: 0;
+    translate: 0 8.856px;
+    animation-timing-function: ease-out;
+  }
+
+  21.25% {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 /* Описание и кнопка — выше всей сцены */
