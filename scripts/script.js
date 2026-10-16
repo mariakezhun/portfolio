@@ -64,54 +64,6 @@ document.querySelectorAll("[data-demo]").forEach((b) =>
   }),
 );
 
-document.querySelectorAll(".orange-scene").forEach((scene) => {
-  const mandarins = scene.querySelector(".background-mandarin");
-
-  const modal = scene.querySelector(
-    '.visual-phone[data-start-after="mandarin"]'
-  );
-
-  if (!mandarins || !modal) return;
-
-  let modalStarted = false;
-  let startPending = false;
-
-  const startModal = async () => {
-    if (modalStarted || startPending) return;
-
-    startPending = true;
-
-    modal.muted = true;
-    modal.defaultMuted = true;
-
-    try {
-      await modal.play();
-      modalStarted = true;
-    } catch (error) {
-      console.warn(
-        "Не удалось запустить модалку:",
-        error.name,
-        error.message
-      );
-    } finally {
-      startPending = false;
-    }
-  };
-
-  mandarins.addEventListener("playing", startModal);
-
-  // На случай, если мандарины уже запустились
-  // до подключения этого обработчика.
-  if (
-    !mandarins.paused &&
-    !mandarins.ended &&
-    mandarins.readyState >= 3 &&
-    mandarins.currentTime > 0
-  ) {
-    startModal();
-  }
-});
-
 const orangeCard = document.querySelector(".card.orange");
 
 // Пропорции прежнего изображения телефона: 408 × 832.
