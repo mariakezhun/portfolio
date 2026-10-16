@@ -592,6 +592,7 @@ dialog button {
     inset: auto;
     padding: 24px 12px 24px;
     width: 100%;
+    overflow: hidden;
   }
 
   #layout {
