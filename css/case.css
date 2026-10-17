@@ -76,6 +76,10 @@ body.case-page {
   min-width: 0;
   padding: 12px 0 0;
 }
+.case-padding-bottom {
+  min-width: 0;
+  padding: 0 0 12px;
+}
 
 .text-muted {
   color: #727272;
@@ -743,6 +747,16 @@ body.case-page {
   padding: 8px;
 }
 
+.case-preview-frame--dosug {
+  background: #1d1d1f;
+  max-height: 441px;
+}
+
+.preview-frame-img {
+  max-height: 382.71px;
+  height: 100%;
+}
+
 .croped-phone {
   width: 100%;
   max-width: 171.24px;
@@ -1114,6 +1128,14 @@ body.case-page {
   .case-preview-frame {
     position: relative;
     aspect-ratio: 518 / 585.48;
+  }
+  
+  .preview-frame-img{
+    position: absolute;
+    object-fit: contain;
+    max-height: calc(100% - 16px);
+    width: auto;
+    max-width: calc(100% - 16px);
   }
 
   .croped-phone {
