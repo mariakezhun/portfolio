@@ -635,7 +635,7 @@ body.case-page {
 
 .case-image-strip {
   display: flex;
-  gap: 8px;
+  gap: 0px;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -669,7 +669,7 @@ body.case-page {
 
 .ogorod {
   width: 236.63px;
-  height: 177.48px;
+  height: 155px;
   max-width: none;
 }
 
@@ -1112,7 +1112,7 @@ body.case-page {
   }
   .ogorod {
     width: 157.76px;
-    height: 118.32px;
+    height: 105px;
   }
 
   .case-pairs {
