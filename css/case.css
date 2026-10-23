@@ -635,9 +635,13 @@ body.case-page {
 
 .case-image-strip {
   display: flex;
-  gap: 0px;
+  gap: 8px;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.case-image-strip--ogorod{
+  gap: 0px;
 }
 
 .strip-img {
